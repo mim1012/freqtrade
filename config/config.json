@@ -1,19 +1,80 @@
 {
-    "exchanges": {
-        "upbit": {
-            "api_key": "your-upbit-api-key",
-            "secret_key": "your-upbit-secret-key",
-            "pairs": ["KRW-BTC", "KRW-ETH"]
-        },
-        "binance": {
-            "api_key": "your-binance-api-key",
-            "secret_key": "your-binance-secret-key",
-            "pairs": ["BTC/USDT", "ETH/USDT"]
-        }
+    "max_open_trades": 3,
+    "stake_currency": "USDT",
+    "stake_amount": "unlimited",
+    "tradable_balance_ratio": 0.99,
+    "fiat_display_currency": "KRW",
+    "dry_run": true,
+    "dry_run_wallet": 1000000,
+    "cancel_open_orders_on_exit": false,
+    "trading_mode": "spot",
+    "margin_mode": "isolated",
+    "unfilledtimeout": {
+        "entry": 10,
+        "exit": 10
     },
-    "trading": {
-        "strategy": "SimpleStrategy",
-        "risk_per_trade": 0.01,
-        "stop_loss": 0.02
+    "exchange": {
+        "name": "upbit",
+        "key": "n1w6GYuAsXQQeIdZQpxK8FsykizFB9xgxxTpJIGd",
+        "secret": "bKBDzXU4vaz1WsrB0Dvhfb9Lv36zAp5L1o9BBg7M",
+        "ccxt_config": {
+            "enableRateLimit": true
+        },
+        "ccxt_async_config": {
+            "enableRateLimit": true
+        },
+        "pair_whitelist": [
+            "BTC/KRW",
+            "ETH/KRW"
+        ],
+        "pair_blacklist": []
+    },
+    "pairlists": [
+        {
+            "method": "StaticPairList",
+            "config": {
+                "pairs": [
+                    "BTC/KRW",
+                    "ETH/KRW"
+                ]
+            }
+        }
+    ],
+    "binance": {
+        "api_key": "${API_KEY_BINANCE}",
+        "api_secret": "${API_SECRET_BINANCE}",
+        "pairs": [
+            "BTC/USDT",
+            "ETH/USDT"
+        ]
+    },
+    "entry_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+    "exit_pricing": {
+        "price_side": "same",
+        "use_order_book": true,
+        "order_book_top": 1
+    },
+    "bot_name": "KimchiPremiumBot",
+    "initial_state": "running",
+    "force_entry_enable": false,
+    "strategy": "KimchiPremiumStrategy",
+    "strategy_path": "user_data/strategies/",
+    "internals": {
+        "process_throttle_secs": 5
+    },
+    "api_server": {
+        "enabled": true,
+        "listen_ip_address": "127.0.0.1",
+        "listen_port": 8080,
+        "verbosity": "error",
+        "enable_openapi": true,
+          "jwt_secret_key": "${JWT_SECRET_KEY}",
+        "CORS_origins": [],
+        "username": "auto",
+        "password": "123"
     }
-} 
+}

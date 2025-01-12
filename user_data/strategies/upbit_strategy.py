@@ -1,8 +1,10 @@
-from freqtrade.strategy import IStrategy, DecimalParameter, IntParameter
-from pandas import DataFrame
-import talib.abstract as ta
-import pandas_ta as pta
 import numpy as np
+import pandas_ta as pta
+import talib.abstract as ta
+from pandas import DataFrame
+
+from freqtrade.strategy import DecimalParameter, IntParameter, IStrategy
+
 
 class UpbitStrategy(IStrategy):
     """
